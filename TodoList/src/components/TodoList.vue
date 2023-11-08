@@ -5,6 +5,47 @@
             @keyup.enter="adicionarTarefa"
             placeholder="Adicionar nova tarefa"
         />
+
+        <q-list>
+            <q-item
+                v-for="tarefa in tarefas"
+                :key="tarefa.id"
+                clickable
+                @click="marcarTarefaComoConcluida(tarefa)"
+                :class="{'text-grey-8': tarefa.concluido}"
+            >
+
+                <q-item-section>
+                    <q-item-label>
+                        {{ tarefa.nome }}
+                    </q-item-label>
+                </q-item-section>
+
+                <q-item-section side>
+                    <div class="q-item-section">
+                        <q-btn 
+                        dense
+                        flat
+                        round
+                        icon="done"
+                        color="positive"
+                        @click="marcarTarefaComoConcluida(tarefa)"
+                        v-if="!tarefa.concluido"
+                        />
+
+                        <q-btn 
+                            dense
+                            flat
+                            round
+                            icon="delete"
+                            color="negative"
+                            @click="removerTarefa(tarefa)"
+                        />
+                    </div>
+                </q-item-section>
+
+            </q-item>
+        </q-list>
     </div>
 </template>
 
@@ -38,7 +79,7 @@ export default {
         removerTarefa(tarefa: Tarefa) {
             const index = this.tarefas.findIndex((item: Tarefa) => item.id == tarefa.id);
             if (index !== -1) {
-                this.tarefas.slice(index, 1);
+                this.tarefas.splice(index, 1);
             }
         }
     }
