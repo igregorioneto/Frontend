@@ -63,7 +63,7 @@
 <script lang="ts">
 import { Tarefa } from '../models/Tarefa';
 export default {
-    name: 'TodoList',
+    name: 'TodoListComponent',
     data() {        
         return {
             tarefaCadastrada: false,

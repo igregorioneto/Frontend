@@ -1,13 +1,13 @@
 <template>
-    <TodoList />
+    <TodoListComponent />
 </template>
 
 <script lang="ts">
-import TodoList from '../components/TodoList.vue';
+import TodoListComponent from '../components/TodoListComponent.vue';
 
 export default {
     components: {
-        TodoList,
+        TodoListComponent,
     }
 };
 </script>
