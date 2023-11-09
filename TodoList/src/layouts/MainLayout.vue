@@ -67,6 +67,12 @@ const essentialLinks: EssentialLinkProps[] = [
     caption: 'Ir para o Mult Step',
     icon: 'code',
     link: '/multistep'
+  },
+  {
+    title: 'Api Panel',
+    caption: 'Consulta na Api JSONPlaceholder',
+    icon: 'code',
+    link: '/apipanel'
   }
 ];
 
