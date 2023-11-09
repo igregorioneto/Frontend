@@ -9,13 +9,12 @@
   </template>
   
   <script>
-  import axios from 'axios';
+  import { useApiStore } from '../boot/api';
   
   export default {
     name: 'ApiPanelComponent',
     data() {
       return {
-        posts: [],
         columns: [
           { name: 'id', required: true, label: 'ID', align: 'left', field: 'id', sortable: true },
           { name: 'title', required: true, label: 'Title', align: 'left', field: 'title', sortable: true },
@@ -23,9 +22,16 @@
         ],
       };
     },
-    async created() {
-      const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-      this.posts = response.data;
-    },
+    setup () {
+        const apiStore = useApiStore();
+
+        apiStore.fetchPosts();
+
+        return {
+            posts: apiStore.posts,
+            loading: apiStore.loading,
+        };
+        
+    }
   };
   </script>
