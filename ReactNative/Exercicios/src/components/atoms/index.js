@@ -1,1 +1,2 @@
-import * from './Text';
+export * from './Text';
+export * from './Container'
