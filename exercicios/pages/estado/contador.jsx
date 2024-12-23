@@ -1,4 +1,4 @@
-import ContadorDisplay from "@/components/ContadorDisplay";
+import NumeroDisplay from "@/components/NumeroDisplay";
 import { useState } from "react";
 
 export default function contador() {
@@ -15,7 +15,7 @@ export default function contador() {
             alignItems: "center"
         }}>
             <h1>Contador</h1>
-            <ContadorDisplay numero={numero} />
+            <NumeroDisplay numero={numero} />
             <div>
                 <button onClick={dec}>-</button>
                 <button onClick={inc}>+</button>
